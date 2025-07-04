@@ -17,7 +17,7 @@ Built using **Flask**, **Bootstrap**, and simple **JSON-based storage** — perf
 
 ## 🖼️ Demo
 
-🔗 Live URL: [https://collabconnect.onrender.com](https://collabconnect.onrender.com)
+🔗 Live URL: [https://collabconnect-agit.onrender.com)
 
 📷 Screenshots (click to enlarge):
 - Homepage  

@@ -26,7 +26,8 @@ Built using **Flask**, **Bootstrap**, and simple **JSON-based storage** — perf
 
 <img width="944" alt="image" src="https://github.com/user-attachments/assets/a862741e-2b30-43b3-8a29-42e9f42f788b" />
 
-- Individual question + replies  
+<img width="944" alt="image" src="https://github.com/user-attachments/assets/012e8c03-29c7-4335-8156-175e7db9c047" />
+
 
 
 

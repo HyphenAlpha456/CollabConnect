@@ -1,0 +1,32 @@
+<!-- templates/forum.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center text-warning mb-4">🗨️ Q&A Forum</h2>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a href="/ask" class="btn btn-sm btn-success">
+            <i class="fas fa-plus-circle me-1"></i> Ask a Question
+        </a>
+    </div>
+
+    {% if questions %}
+        <div class="list-group">
+            {% for q in questions %}
+            <a href="/question/{{ q.id }}" class="list-group-item list-group-item-action shadow-sm rounded mb-2">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-primary">{{ q.title }}</h5>
+                    <small class="text-muted">Replies: {{ q.replies | length }}</small>
+                </div>
+                <p class="mb-1 text-muted">{{ q.description[:120] }}{% if q.description|length > 120 %}...{% endif %}</p>
+            </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center">
+            No questions yet. <a href="/ask">Be the first to ask!</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

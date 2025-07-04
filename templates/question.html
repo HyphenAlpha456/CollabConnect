@@ -1,0 +1,41 @@
+<!-- templates/question.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-3 text-primary">{{ question.title }}</h2>
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <p class="text-muted">{{ question.description }}</p>
+        </div>
+    </div>
+
+    <h4 class="mb-3 text-success">💬 Replies</h4>
+
+    {% if question.replies %}
+        {% for reply in question.replies %}
+        <div class="card mb-3 border-0 border-start border-4 border-success shadow-sm">
+            <div class="card-body">
+                <p class="mb-0 text-dark">{{ reply }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info">No replies yet. Be the first to answer!</div>
+    {% endif %}
+
+    <hr class="my-4">
+
+    <h5 class="mb-3 text-danger">✍️ Add Your Reply</h5>
+    <form method="POST" action="/question/{{ question.id }}">
+        <div class="mb-3">
+            <textarea class="form-control" name="reply" rows="4" placeholder="Type your answer here..." required></textarea>
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-dark">
+                <i class="fas fa-reply me-2"></i>Submit Reply
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

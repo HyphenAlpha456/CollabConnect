@@ -1,0 +1,36 @@
+<!-- templates/submit_idea.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4 text-center text-primary">🧠 Share Your Project Idea</h2>
+
+    <form action="/submit-idea" method="POST" class="card shadow p-4 mx-auto" style="max-width: 700px;">
+        <div class="mb-3">
+            <label for="title" class="form-label fw-semibold">Project Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="E.g. AI Chatbot for Mental Health" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label fw-semibold">Project Description</label>
+            <textarea class="form-control" id="description" name="description" rows="5" placeholder="Brief overview of your project..." required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="tech" class="form-label fw-semibold">Tech Stack / Tags</label>
+            <input type="text" class="form-control" id="tech" name="tech" placeholder="Python, Flask, ML, React...">
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label fw-semibold">Your Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">
+                <i class="fas fa-paper-plane me-2"></i>Submit Idea
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

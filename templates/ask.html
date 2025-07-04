@@ -1,0 +1,26 @@
+<!-- templates/ask.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4 text-center text-danger">❓ Ask a New Question</h2>
+
+    <form action="/ask" method="POST" class="card shadow p-4 mx-auto" style="max-width: 700px;">
+        <div class="mb-3">
+            <label for="title" class="form-label fw-semibold">Question Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="E.g. How to integrate Flask with SQLite?" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label fw-semibold">Question Description</label>
+            <textarea class="form-control" id="description" name="description" rows="6" placeholder="Explain your problem in detail..." required></textarea>
+        </div>
+
+        <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-danger btn-lg">
+                <i class="fas fa-question-circle me-2"></i>Post Question
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

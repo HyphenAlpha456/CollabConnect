@@ -1,0 +1,52 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-4 fw-bold text-primary">Welcome to CollabConnect</h1>
+    <p class="lead text-secondary mt-3">
+        Share your project ideas. Collaborate. Solve problems together.
+    </p>
+    <div class="mt-4">
+        <a href="/submit-idea" class="btn btn-lg btn-outline-primary me-3">
+            <i class="fas fa-lightbulb me-2"></i>Share Your Idea
+        </a>
+        <a href="/forum" class="btn btn-lg btn-outline-dark">
+            <i class="fas fa-comments me-2"></i>Join Q&A Forum
+        </a>
+    </div>
+</div>
+
+<!-- Highlight Sections -->
+<div class="row mt-5 text-center">
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <i class="fas fa-project-diagram fa-2x text-primary mb-3"></i>
+                <h5 class="card-title">Submit Ideas</h5>
+                <p class="card-text text-muted">Share innovative projects with the community and attract contributors.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <i class="fas fa-users fa-2x text-success mb-3"></i>
+                <h5 class="card-title">Collaborate</h5>
+                <p class="card-text text-muted">Explore others’ ideas and get in touch to build something amazing together.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <i class="fas fa-question-circle fa-2x text-warning mb-3"></i>
+                <h5 class="card-title">Ask & Answer</h5>
+                <p class="card-text text-muted">Join our open Q&A space to get help and support others in the community.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

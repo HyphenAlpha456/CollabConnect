@@ -20,12 +20,13 @@ Built using **Flask**, **Bootstrap**, and simple **JSON-based storage** — perf
 🔗 Live URL: [https://collabconnect-agit.onrender.com)
 
 📷 Screenshots (click to enlarge):
-- Homepage  
+- <img width="950" alt="image" src="https://github.com/user-attachments/assets/14a29c7a-d32e-4b8d-9833-9b405d5acef0" />
+
 - Submit idea form  
 - Q&A forum  
 - Individual question + replies  
 
-*(Add screenshots here once deployed)*
+
 
 ---
 

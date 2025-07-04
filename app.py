@@ -86,4 +86,4 @@ if __name__ == '__main__':
         save_json([], 'data/ideas.json')
     if not os.path.exists('data/forum.json'):
         save_json([], 'data/forum.json')
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0", port=port)

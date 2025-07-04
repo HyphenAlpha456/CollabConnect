@@ -24,7 +24,8 @@ Built using **Flask**, **Bootstrap**, and simple **JSON-based storage** — perf
 
 <img width="164" alt="image" src="https://github.com/user-attachments/assets/5504be46-24bc-49c0-a66a-c7d12d9cc25b" />
 
-- Q&A forum  
+<img width="944" alt="image" src="https://github.com/user-attachments/assets/a862741e-2b30-43b3-8a29-42e9f42f788b" />
+
 - Individual question + replies  
 
 

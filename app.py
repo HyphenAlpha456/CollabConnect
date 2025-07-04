@@ -5,7 +5,7 @@ from uuid import uuid4
 
 app = Flask(__name__)
 
-# --- Utility functions ---
+
 def load_json(path):
     if not os.path.exists(path):
         return []
@@ -16,12 +16,12 @@ def save_json(data, path):
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4)
 
-# --- Routes ---
+
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# ----- PROJECT IDEA ROUTES -----
+
 @app.route('/submit-idea', methods=['GET', 'POST'])
 def submit_idea():
     if request.method == 'POST':
@@ -42,7 +42,7 @@ def view_projects():
     ideas = load_json('data/ideas.json')
     return render_template('projects.html', ideas=ideas)#
 
-# ----- Q&A FORUM ROUTES -----
+
 @app.route('/forum')
 def forum():
     questions = load_json('data/forum.json')
@@ -79,7 +79,7 @@ def question(id):
 
     return render_template('question.html', question=question)
 
-# --- Run the app ---
+
 if __name__ == '__main__':
     os.makedirs('data', exist_ok=True)
     if not os.path.exists('data/ideas.json'):

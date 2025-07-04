@@ -5,7 +5,6 @@ from uuid import uuid4
 
 app = Flask(__name__)
 
-
 def load_json(path):
     if not os.path.exists(path):
         return []
@@ -16,11 +15,9 @@ def save_json(data, path):
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4)
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
-
 
 @app.route('/submit-idea', methods=['GET', 'POST'])
 def submit_idea():
@@ -34,14 +31,13 @@ def submit_idea():
         ideas = load_json('data/ideas.json')
         ideas.append(idea)
         save_json(ideas, 'data/ideas.json')
-        return redirect(url_for('projects')) #
+        return redirect(url_for('view_projects'))  # ✅ FIXED endpoint
     return render_template('submit_idea.html')
 
 @app.route('/projects')
 def view_projects():
     ideas = load_json('data/ideas.json')
-    return render_template('projects.html', ideas=ideas)#
-
+    return render_template('projects.html', ideas=ideas)
 
 @app.route('/forum')
 def forum():
@@ -79,11 +75,8 @@ def question(id):
 
     return render_template('question.html', question=question)
 
-
 if __name__ == '__main__':
-    import os
     port = int(os.environ.get("PORT", 5000))  
-
     os.makedirs('data', exist_ok=True)
     if not os.path.exists('data/ideas.json'):
         save_json([], 'data/ideas.json')
@@ -91,4 +84,3 @@ if __name__ == '__main__':
         save_json([], 'data/forum.json')
 
     app.run(debug=True, host="0.0.0.0", port=port)
-

@@ -31,7 +31,7 @@ def submit_idea():
         ideas = load_json('data/ideas.json')
         ideas.append(idea)
         save_json(ideas, 'data/ideas.json')
-        return redirect(url_for('view_projects'))  # ✅ FIXED endpoint
+        return redirect(url_for('view_projects'))  
     return render_template('submit_idea.html')
 
 @app.route('/projects')

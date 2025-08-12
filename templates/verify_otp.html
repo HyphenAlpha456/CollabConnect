@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .otp-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .otp-container h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .otp-container p {
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+        .otp-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .otp-inputs input {
+            width: 48px;
+            height: 58px;
+            font-size: 24px;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            outline: none;
+            transition: all 0.2s ease-in-out;
+        }
+        .otp-inputs input:focus {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+        .verify-btn {
+            background: linear-gradient(90deg, #56ccf2, #2f80ed);
+            border: none;
+            padding: 15px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            color: white;
+            transition: background 0.3s ease;
+        }
+        .verify-btn:hover {
+            background: linear-gradient(90deg, #2f80ed, #56ccf2);
+        }
+        .resend {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .resend a {
+            color: #56ccf2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .resend a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="otp-container">
+        <h1>Verify Your Email</h1>
+        <p>Enter the 6-digit OTP sent to your email to continue.</p>
+
+        <form action="/verify-otp" method="POST" id="otpForm">
+            <div class="otp-inputs">
+                <input type="text" maxlength="1" required>
+                <input type="text" maxlength="1" required>
+                <input type="text" maxlength="1" required>
+                <input type="text" maxlength="1" required>
+                <input type="text" maxlength="1" required>
+                <input type="text" maxlength="1" required>
+            </div>
+            <!-- Hidden field to hold the full OTP -->
+            <input type="hidden" name="otp" id="otpField">
+            <button type="submit" class="verify-btn">Verify OTP</button>
+        </form>
+
+        <div class="resend">
+            Didn't receive the code? <a href="/resend-otp">Resend OTP</a>
+        </div>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll('.otp-inputs input');
+        const otpField = document.getElementById('otpField');
+        const otpForm = document.getElementById('otpForm');
+
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', () => {
+                if (input.value && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !input.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+
+        otpForm.addEventListener('submit', (e) => {
+            let otpValue = '';
+            inputs.forEach(input => otpValue += input.value);
+            otpField.value = otpValue;
+        });
+    </script>
+</body>
+</html>
